@@ -1,14 +1,21 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @charset "UTF-8";
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: fantasy; }
-
+  font-family: sans-serif, serif;
+}
+/* fantasy, Times, 'Times New Roman',*/
 html,
 body {
-  /* height: 100%;  */
   min-height: 100vh;
 }
 
@@ -37,7 +44,8 @@ ol[class] {
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
-  text-decoration-skip-ink: auto; }
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; }
 
 /* Упрощаем работу с изображениями */
 img {
@@ -60,7 +68,8 @@ input, button, textarea, select {
     -webkit-animation-iteration-count: 1 !important;
             animation-iteration-count: 1 !important;
     -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
+            -o-transition-duration: 0.01ms !important;
+       transition-duration: 0.01ms !important;
     scroll-behavior: auto !important; } }
 .container {
   max-width: 1400px;
@@ -112,36 +121,6 @@ nav > a:hover {
   cursor: pointer;
   color: brown; }
 
-.title-1 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  /* padding-top: 30px; */
-  font-weight: 900px;
-  color: #010202;
-  text-shadow: 0px 4px 10px rgba(177, 176, 180, 0.8);
-  background: #615c46;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(85, 83, 76, 0.86)), to(rgba(141, 118, 159, 0.5830707283)));
-  background: linear-gradient(90deg, rgba(85, 83, 76, 0.86) 0%, rgba(141, 118, 159, 0.5830707283) 100%);
-  width: 350px;
-  height: 100px;
-  border-radius: 5px; 
-  margin-bottom: 60px;
-	font-size: 60px;
-	/* font-weight: 700; */
-	line-height: 1.3;
-	color: var(--title-1);
-}
-
-/* .title-1 {
-	margin-bottom: 60px;
-	font-size: 60px;
-	font-weight: 700;
-	line-height: 1.3;
-	color: var(--title-1);
-	text-align: center;
-} */
 /************************************Картинки*************************************/
 figure {
   display: block;
@@ -216,20 +195,24 @@ figcaption {
     border-bottom: 5px solid transparent; }
   input[type=checkbox]:checked ~ .accordion-label:before {
     -webkit-transform: rotate(90deg);
-            transform: rotate(90deg); }
+            -ms-transform: rotate(90deg);
+        transform: rotate(90deg); }
 
 .accordion-child {
   margin: 0;
   overflow: hidden;
   border-radius: 7px;
   -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
   height: 0;
   -webkit-transform: scale(1, 0);
-          transform: scale(1, 0);
+          -ms-transform: scale(1, 0);
+      transform: scale(1, 0);
   -webkit-transform-origin: center top;
-          transform-origin: center top; }
+          -ms-transform-origin: center top;
+      transform-origin: center top; }
   input[type=checkbox]:checked ~ .accordion-child {
     border: 1px solid #e0e0e0;
     margin: 0 -20px 15px -20px;
@@ -240,7 +223,8 @@ figcaption {
     height: auto;
     opacity: 1;
     -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); }
+            -ms-transform: scale(1, 1);
+        transform: scale(1, 1); }
 .btn-gallery-dad{
   margin-left: 50px;
   display: inline-block; /* Строчно-блочный элемент */
@@ -268,49 +252,64 @@ figcaption {
 .btn-gallery-mam:hover{
   background: red;  
 }
-/*# sourceMappingURL=cats.css.map */
 /* ************Section********** */
 .section {
 	padding: 70px 200px 70px 430px;
 
 }
-/* 
 .title-1 {
-	margin-bottom: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-weight: 900px;
+  color: #010202;
+  text-shadow: 0px 4px 10px rgba(177, 176, 180, 0.8);
+  background: #615c46;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(85, 83, 76, 0.86)), to(rgba(141, 118, 159, 0.5830707283)));
+  background: -o-linear-gradient(left, rgba(85, 83, 76, 0.86) 0%, rgba(141, 118, 159, 0.5830707283) 100%);
+  background: linear-gradient(90deg, rgba(85, 83, 76, 0.86) 0%, rgba(141, 118, 159, 0.5830707283) 100%);
+  width: 350px;
+  height: 100px;
+  border-radius: 5px; 
+  margin-bottom: 60px;
 	font-size: 60px;
-	font-weight: 700;
 	line-height: 1.3;
 	color: var(--title-1);
-	text-align: center;
-} */
-
+}
 .title-2 {
 	margin-bottom: 20px;
 	font-size: 40px;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1.3;
 }
-/* Content list */
-
 .content-list {
 	margin: 0 auto;
 	max-width: 570px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	row-gap: 40px;
 	text-align: center;
 }
-
 .content-list a {
 	color: var(--accent);
 }
-
 .content-list__item {
 	font-size: 18px;
 	line-height: 1.5;
 }
-
+.content-list__item a:hover{
+  cursor: pointer;
+  color: brown;  
+}
 .content-list__item p + p {
 	margin-top: 0.5em;
 }
@@ -320,20 +319,34 @@ figcaption {
   padding-top: 25px;
 }
 .footer__wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	row-gap: 27px;
 }
 
 .social {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	column-gap: 30px;
-	align-items: center;
+	-webkit-column-gap: 30px;
+	   -moz-column-gap: 30px;
+	        column-gap: 30px;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 /*Мантра для svg */
 .img-svg{
-  filter: url(#filter_B);
+  -webkit-filter: url(#filter_B);
+          filter: url(#filter_B);
 }
 /*конец мантры */
 .copyright {

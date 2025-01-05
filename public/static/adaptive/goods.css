@@ -178,35 +178,39 @@
         .header_menu.active{
             top: 0;
         }
-    nav{
-        display: block;   
-        border: none;
-        z-index: 2;
-        height: 600px;
-        max-width: 425px;
-    }
-    nav>a{
-        display: block;   
-        justify-content: space-between;
-        font-size: 24px;
-        left: 10px;
-        top: 10px;
-        color: aliceblue;
-        margin: 0px;
-        padding: 0px;
-    }
-    .nav_bottom>a{
-        color: aliceblue;
-        height: 70px;
-    }
-    .nav_bottom, .header_link, #active-button{
-        font-size: 40px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-top: 0px;
-        padding-bottom: 0; 
-        height: 75px;
-    }
+nav{
+    border: none;
+    display: block;   
+    z-index: 2;
+    height: 600px;
+    max-width: 425px;
+    font-size: 50px;
+}
+nav>a{
+    display: block;   
+    justify-content: space-between;
+    font-size: 24px;
+    left: 10px;
+    top: 10px;
+    color: aliceblue;
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, serif;
+}
+.nav_bottom>a{
+    color: aliceblue;
+    height: 70px;
+    font-family: sans-serif, serif;
+}
+.nav_bottom, .header_link, #active-button{
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0; 
+    height: 75px;
+    font-family: sans-serif, serif;
+}
     .container_nav{
         z-index: 1;   
     }

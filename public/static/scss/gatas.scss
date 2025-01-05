@@ -4,12 +4,13 @@ $border-color: #e0e0e0;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family:fantasy;
+  font-family: sans-serif, serif;
 }
 html,
 body{
   height: 100%;
   height: 2200px;
+  // overflow: hidden; /*Чтобы не было скролла*/
 }
 /* Убираем внутренние отступы */
 ul[class],ol[class] {padding: 0;}
@@ -72,7 +73,7 @@ justify-content: space-around;
 border-radius: 10px; 
 }
 nav>a{
-color: rgb(11, 11, 11);
+color: #0b0b0b;
 text-decoration: none;
 font-weight:bolder;
 font-size:x-large;
