@@ -1,0 +1,331 @@
+$border-color: #e0e0e0;
+
+*,*:before,*:after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif, serif;
+}
+html,
+body{
+  height: 100%;
+  height: 1500px;
+  // overflow: hidden; /*Чтобы не было скролла*/
+}
+/* Убираем внутренние отступы */
+ul[class],ol[class] {padding: 0;}
+/* Убираем внешние отступы */
+body,h1,h2,h3,h4,p,ul[class],ol[class],li,figure,figcaption,blockquote,dl,dd {margin: 0;}
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+min-height: 100vh;
+scroll-behavior: smooth;
+text-rendering: optimizeSpeed;
+line-height: 1.5;
+width: 100%;
+height: 1300px;
+background-color: rgb(174, 175, 178);
+}
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+list-style: none;
+}
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+text-decoration-skip-ink: auto;
+}
+/* Упрощаем работу с изображениями */
+img {
+max-width: 100%;
+display: block;
+}
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+margin-top: 1em;
+}
+/* Наследуем шрифты для инпутов и кнопок */
+input,button,textarea,select {
+font: inherit;
+}
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+* {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}}
+.container{
+max-width: 1400px;
+width: 100%;
+margin: 0 100px auto 100px;
+}
+
+/*********************Navbar*************************************/
+nav{
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+  margin-left: 100px;
+  border: 0.5px solid white;
+  display: flex;
+  justify-content: space-around; 
+  border-radius: 10px; 
+}
+nav>a{
+  color: rgb(11, 11, 11);
+  text-decoration: none;
+  font-weight:bolder;
+  font-size:x-large;
+  height: 100px;
+}
+nav>a:hover{
+  cursor: pointer;
+  color:brown;
+}
+// #active-button{
+//   color: rgb(228, 104, 59);
+// }
+.nav_bottom>.active-button{
+color: rgb(228, 104, 59);
+}
+
+.nav_bottom{
+  padding-top: 30px;
+  font-weight:bolder;
+  font-size:x-large;
+  height: 100px;
+}
+.nav_bottom>a{
+color: rgb(7, 7, 7);
+text-decoration: none;
+}
+.nav_bottom>a:hover{
+cursor: pointer;
+color:brown;
+}
+h1{
+text-align: center;
+margin-left: 630px;
+margin-top: 20px;
+padding-top: 30px;
+font-weight: 900px;
+color: rgb(1, 2, 2);
+text-shadow: 0px 4px 10px rgba(177, 176, 180, 0.8);
+background: rgb(97, 92, 70);
+background: linear-gradient(90deg, rgba(85, 83, 76, 0.86) 0%, rgba(141,118,159,0.5830707282913166) 100%);
+width: 350px;
+height: 100px;
+border-radius: 5px;
+}
+/************************************Картинки*************************************/
+figure {
+display: block; /* Блочный элемент */
+margin-left: 398px;
+margin-right: auto;
+margin-top: 10px; 
+width: 800px; /* Ширина */
+max-width: 800px;
+height: 500px; /* Высота */ 
+}
+figure img {
+border: 2px solid #181813; /* Параметры рамки */
+border-radius: 10px; 
+}
+figcaption{
+padding: 20px; /* Поля вокруг текста */
+text-align: center; /* Выравнивание по центру */
+background: #bdbdbc; /* Цвет фона */
+border-radius: 10px;
+font-weight: 200px;
+}
+.accordion-item{
+  margin-bottom: 30px;
+}
+/*--------------------------------Аккордеон-----------------------------------------------*/
+.hide{
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.accordion{
+  background: #fff;
+  width: 800px;
+  border: 1px solid $border-color;
+  left: 600px; 
+  border-radius: 7px;
+}
+.accordion-item{
+	position: relative;
+	width: 100%;
+  border-bottom: 1px solid $border-color;
+  
+	&:last-child{
+	border-bottom: none;
+	}
+
+}
+
+.accordion-label{
+	padding: 20px 10px 20px 50px;
+	width: 100%;
+	display: block;
+  font-size: 18px;
+  
+  &:hover{
+    cursor: pointer;
+  }
+
+	&:before{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 22px;
+    left: 12px;
+    display: inline-block;
+    border-left: 5px solid #999;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+	}
+
+	input[type=checkbox]:checked ~ &:before{
+		transform: rotate(90deg);
+	}
+}
+
+.accordion-child{
+  margin: 0;
+  overflow: hidden;
+  border-radius: 7px;
+  transition: all 0.3s ease; 
+  opacity: 0;
+  height: 0;
+  transform: scale(1,0);
+  transform-origin: center top;
+  
+	input[type=checkbox]:checked ~ &{
+
+    border: 1px solid $border-color;
+    margin: 0 -20px 15px -20px;
+    background: #fff;
+    box-shadow: 0 3px 6px 1px rgba(0,0,0,0.16);
+ 	   padding: 30px;   
+    height: auto;
+    opacity: 1;
+    transform: scale(1,1);   
+  }
+}
+.btn-gallery-dad{
+  margin-left: 50px;
+  display: inline-block; /* Строчно-блочный элемент */
+  background: #8C959D; /* Серый цвет фона */
+  color: #fff; /* Белый цвет текста */
+  padding: 1rem 1.5rem; /* Поля вокруг текста */
+  text-decoration: none; /* Убираем подчёркивание */
+  border-radius: 15px; /* Скругляем уголки */
+}
+.btn-gallery-dad:hover{
+  background: red;  
+}
+.cat-dad{
+  text-align: center;
+}
+/* ************************FOOTER*********************** */
+.footer{
+  position: absolute;
+  padding-top: 3300px;
+  align-items: center;
+  // padding-left: 240px;
+}
+.footer>.container{
+  padding-left: 400px;
+}
+.footer__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 27px;
+  color: #010202;
+}
+.social {
+	display: flex;
+	column-gap: 30px;
+	align-items: center;
+  color: #010202;
+}
+.img-svg{
+  filter: url(#filter_B);
+}
+.copyright a{
+	font-size: 20px;
+  color: #010202;
+  text-decoration: none;
+}
+/*Эффект мигания ссылки*/
+.copyright a:hover {
+-webkit-animation:rainbow 1s infinite;
+-ms-animation:rainbow 1s infinite;
+-o-animation:rainbow 1s infinite;
+animation:rainbow 1s infinite;
+}
+@-webkit-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+@-ms-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+@-o-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+@keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+/******************************/
+.copyright p + p {
+	margin-top: 0.5em;
+}
